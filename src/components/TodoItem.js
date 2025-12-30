@@ -1,10 +1,7 @@
-import React from "react";
 import { useTodos } from "../context/TodoContext";
-
-const TodoItem = ({ todo }) => {
+import React from "react";
+function TodoItem({ todo }) {
   const { toggleTodo, removeTodo } = useTodos();
-
-  console.log("render: ", TodoItem.text); //성능체크용
 
   return (
     <li>
@@ -19,6 +16,6 @@ const TodoItem = ({ todo }) => {
       <button onClick={() => removeTodo(todo.id)}>삭제</button>
     </li>
   );
-};
-
+}
+// 컴포넌트를 메모함으로서 props인 text, done 가 변하지 않는 한 렌더링 안함
 export default React.memo(TodoItem);
